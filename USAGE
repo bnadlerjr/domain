@@ -1,0 +1,23 @@
+Generates models, unit tests and migrations for a domain by parsing an XML
+file. Designed to be used at the beginning of a new project where you have a 
+piece of your domain defined (maybe derived from a set of mockups), it saves 
+you the trouble of re-defining tables. The XML file is generated using visual 
+database modeling software or ERP software. Right now only SQL Editor 
+[http://www.malcolmhardie.com/sqleditor/] is supported.
+
+By default it will generate models, unit tests and migrations for all tables, 
+but you can pass in specific table name(s) to override this.
+
+When generating models, it will also create the method calls to generate the 
+model joins. Currently, only 'has_many' and 'belongs_to' are supported. It 
+will also create presence validators for any fields that are marked as required 
+and uniqueness validators for any fields that are marked as unique. If comments
+are given for the table, they will be inserted as RDOC comments before the 
+model class definition.
+
+The generated unit tests rely on Shoulda and assume that it has been installed.
+They will also create tests for any presence or uniqueness validations.
+
+The generated migrations are the same as the standard migration generator, but 
+also support default values and string limits defined for the fields. Indexes 
+are also generated.
