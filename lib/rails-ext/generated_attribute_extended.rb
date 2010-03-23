@@ -13,7 +13,9 @@ module Rails
       end
       
       # Converts field into a migration declaration like:
-      # t.string :name, :null => false, :default => 'Untitled'
+      #
+      # <tt>t.string :name, :null => false, :default => 'Untitled'</tt>
+      #
       # +obj+ is the name of the owner ('t' in the above example).
       def to_migration(obj)
         result = "#{obj}.#{@column.type} :#{@column.name.underscore}"
