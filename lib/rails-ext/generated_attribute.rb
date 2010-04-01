@@ -4,12 +4,12 @@ module Rails
     # An extended version of +GeneratedAttribute+ that adds support for indicating if the attribute
     # is indexed or unique. It also defines a convenience method for creating a 'migration declaration'
     # (see +to_migration+).
-    class GeneratedAttributeExtended < Rails::Generator::GeneratedAttribute
+    class GeneratedAttribute
       attr_accessor :indexed, :unique
       
       def initialize(name, type, default=nil, nullable=true, indexed=false, unique=false)
         @column = ActiveRecord::ConnectionAdapters::Column.new(name, default, type, nullable)
-        @indexed, @unique = indexed, unique
+        @name, @type, @indexed, @unique = name, type.to_sym, indexed, unique
       end
       
       # Converts field into a migration declaration like:

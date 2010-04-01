@@ -1,4 +1,4 @@
-require "#{File.dirname(__FILE__)}/rails-ext/generated_attribute_extended"
+require "#{File.dirname(__FILE__)}/rails-ext/generated_attribute"
 
 module MyDomainGenerator
   class Table
@@ -46,7 +46,7 @@ module MyDomainGenerator
           # Relationships       
           @references[:belongs_to] << e.elements["referencesTable"].text.underscore.to_sym if e.elements["referencesTable"]
 
-          @fields << Rails::Generator::GeneratedAttributeExtended.new(name, type, default, nullable, indexed, unique)
+          @fields << Rails::Generator::GeneratedAttribute.new(name, type, default, nullable, indexed, unique)
         end
       end
     end

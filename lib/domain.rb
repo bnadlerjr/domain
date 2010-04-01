@@ -1,4 +1,4 @@
-require "#{File.dirname(__FILE__)}/rails-ext/generated_attribute_extended"
+require "#{File.dirname(__FILE__)}/rails-ext/generated_attribute"
 require "#{File.dirname(__FILE__)}/table"
 
 module MyDomainGenerator
