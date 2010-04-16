@@ -31,7 +31,6 @@ also support default values and string limits defined for the fields. Indexes
 are also generated.
 
 == License
-
 (The MIT License)
 
 Copyright (c) 2010 Bob Nadler, Jr.

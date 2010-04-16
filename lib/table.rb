@@ -1,6 +1,7 @@
 require "#{File.dirname(__FILE__)}/rails-ext/generated_attribute"
 
 module MyDomainGenerator
+  # Holds meta information about a database table. Used for creating model files, migration files, etc.
   class Table
     attr_reader :name,   :description,    :class_name,    :file_name,       :migration_file_name, 
                 :fields, :indexed_fields, :unique_fields, :required_fields, :references
