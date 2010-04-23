@@ -4,7 +4,7 @@ require "test/unit"
 require 'rubygems'
 require "rails_generator"
 require 'rails_generator/scripts/generate'
-require 'activerecord'
+require 'active_record'
 
 class TestDomainGenerator < Test::Unit::TestCase
   DELETE_TMP_APP = true # Set to false when debugging generated files to keep them around
