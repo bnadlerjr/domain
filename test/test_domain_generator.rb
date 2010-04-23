@@ -35,8 +35,10 @@ class TestDomainGenerator < Test::Unit::TestCase
   end
   
   def test_generates_migration
+    migration_folder = File.join(@app_root, 'db/migrate')
     @models.each do |model|
-      
+      migration_file = Dir[File.join(migration_folder, "*create_#{model.pluralize}.rb")].first
+      assert_files_equal File.join(SAMPLES_ROOT, "#{model}_migration.rb"), migration_file
     end
   end
   
