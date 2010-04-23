@@ -30,6 +30,15 @@ The generated migrations are the same as the standard migration generator, but
 also support default values and string limits defined for the fields. Indexes 
 are also generated.
 
+== Installation
+Clone the git repo to a folder that Rails where Rails looks for custom 
+generators.
+
+For example:
+
+<tt>mkdir ~/.rails/generators</tt>
+<tt>git clone git://github.com/thethirdswitch/domain.git</tt>
+
 == License
 (The MIT License)
 
