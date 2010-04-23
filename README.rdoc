@@ -10,8 +10,8 @@ Generates models, unit tests and migrations for a domain by parsing an XML
 file. Designed to be used at the beginning of a new project where you have a 
 piece of your domain defined (maybe derived from a set of mockups), it saves 
 you the trouble of re-defining tables. The XML file is generated using visual 
-database modeling software or ERP software. Right now only SQL Editor 
-[http://www.malcolmhardie.com/sqleditor/] is supported.
+database modeling software or ERP software. Right now only 
+{SQL Editor}[http://www.malcolmhardie.com/sqleditor] is supported.
 
 By default it will generate models, unit tests and migrations for all tables, 
 but you can pass in specific table name(s) to override this.
@@ -31,12 +31,14 @@ also support default values and string limits defined for the fields. Indexes
 are also generated.
 
 == Installation
-Clone the git repo to a folder that Rails where Rails looks for custom 
-generators.
+Clone the git repo to a folder where Rails looks for custom generators.
 
 For example:
 
 <tt>mkdir ~/.rails/generators</tt>
+
+<tt>cd ~/.rails/generators</tt>
+
 <tt>git clone git://github.com/thethirdswitch/domain.git</tt>
 
 == License
