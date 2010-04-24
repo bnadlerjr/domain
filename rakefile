@@ -4,29 +4,35 @@ require 'rake/rdoctask'
 
 TEST_FILES = FileList['test/**/test_*.rb']
 
-Rake::TestTask.new do |t|
-  t.test_files = TEST_FILES
+namespace :doc do
+  Rake::RDocTask.new do |t|
+    t.main = 'README.rdoc'
+    t.rdoc_dir = 'doc'
+    t.rdoc_files = FileList['README.rdoc', 'domain_generator.rb', 'lib']
+    t.title = 'Domain Generator'
+    t.options << '--quiet'
+  end  
 end
 
-Rake::RDocTask.new do |t|
-  t.main = 'README.rdoc'
-  t.rdoc_dir = 'doc'
-  t.rdoc_files = FileList['README.rdoc', 'domain_generator.rb', 'lib']
-  t.title = 'Domain Generator'
-  t.options << '--quiet'
-end
-
-# Enable rcov if it's installed
-begin
-  require 'rcov/rcovtask'
-  
-  Rcov::RcovTask.new do |t|
+namespace :test do
+  Rake::TestTask.new(:all) do |t|
     t.test_files = TEST_FILES
-    t.output_dir = 'doc/coverage'
-    t.rcov_opts << '-x /Library/Ruby/Gems/1.8/gems'
   end
-rescue LoadError
-  puts 'RCov not installed. RCov related tasks are not available.'
+
+  # Enable rcov if it's installed
+  begin
+    require 'rcov/rcovtask'
+
+    Rcov::RcovTask.new do |t|
+      t.test_files = TEST_FILES
+      t.output_dir = 'doc/coverage'
+      t.rcov_opts << '-x /Library/Ruby/Gems/1.8/gems'
+    end
+  rescue LoadError
+    puts 'RCov not installed. RCov related tasks are disabled.'
+  end
+  
 end
 
-task :default => ['test']
+
+task :default => ['test:all']
